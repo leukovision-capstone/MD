@@ -2,4 +2,26 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Background Colors -->
+    <color name="background_green">#DFF6D5</color>
+    <color name="background_blue">#D6EBFF</color>
+    <color name="background_yellow">#FFFACD</color>
+    <color name="background_red">#FFD6D6</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_warning">#FF0000</color>
+
+    <!-- Button Colors -->
+    <color name="button_green">#A9DF90</color>
+    <color name="button_yellow">#FFE066</color>
+    <color name="button_red">#FF6B6B</color>
+
+    <!-- Border Colors -->
+    <color name="border_green">#AADDAA</color>
+    <color name="border_blue">#AACCCC</color>
+    <color name="border_yellow">#FFE6A6</color>
+    <color name="border_red">#FFAAAA</color>
 </resources>
