@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="pink_light">#FFC1E3</color>
-    <color name="pink">#FF4081</color>
-    <color name="pink_dark">#D774B9</color>
-    <color name="pink_accent">#FF4081</color>
+    <!-- Warna utama dengan variasi biru -->
+    <color name="blue_200">#90CAF9</color> <!-- Biru muda -->
+    <color name="blue_500">#2196F3</color> <!-- Biru sedang -->
+    <color name="blue_700">#1976D2</color> <!-- Biru tua -->
+    <color name="teal_200">#80DEEA</color> <!-- Biru kehijauan muda -->
+    <color name="teal_700">#00838F</color> <!-- Biru kehijauan tua -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="purple">#8692F7</color> <!-- Bisa diganti jika tidak diperlukan -->
 
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="gray">#9E9E9E</color>
-    <color name="dark_gray">#616161</color>
-    <color name="background_color">#F5F5F5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="secondaryColor">#2196F3</color>
+    <color name="primaryColor">#90CAF9</color>
+    <color name="darkerBlue">#0D47A1</color>
 
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
-
-    <color name="button_background">@color/pink</color>
-    <color name="button_text">#FFFFFF</color>
-
-    <color name="status_online">#FF80AB</color>
-    <color name="status_offline">#F48FB1</color>
-
-    <color name="primaryColor">#FF69B4</color>
-    <color name="secondaryColor">#FFC0CB</color>
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
 </resources>

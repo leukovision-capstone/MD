@@ -1,22 +1,31 @@
 <resources>
     <string name="app_name">Leukovision</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Scan</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_patients">Patients</string>
-    <string name="menu_scan">Scan</string>
-    <string name="menu_history">History</string>
-    <string name="menu_settings">Settings</string>
+    <!-- Fragment Scan -->
+    <string name="validasi_gambar">Validasi Gambar</string>
+    <string name="buka_galeri">Buka Galeri</string>
+    <string name="analyze">Analisis</string>
+    <string name="select_image_first">Please select an image first</string>
+    <string name="image_ready_analysis">Image is ready for analysis!</string>
+    <string name="failed_analysis">Failed to analyze image</string>
 
-    <string name="gallery">Galeri</string>
-    <string name="analyze">Analyze</string>
-    <string name="result">Hasil Analisis</string>
+    <!-- Greeting Text -->
+    <string name="greeting_doctor">Hallo Dokter 👋</string>
 
-    <string name="image_classifier_failed">Masukan Gambar Dahulu. Lihat log untuk informasi detail</string>
-    <string name="unselect_image">Pilih Gambar Cancer</string>
-    <string name="result_image_description">Hasil Image</string>
-    <string name="image_crop_failed">Gagal Crop Foto</string>
+    <!-- Subtitle Text -->
+    <string name="subtitle_leukemia">Mari atasi leukemia bersama Leukovision</string>
 
-    <string name="edit_photo">Edit Photo</string>
-    <string name="analyze_result">Analyze Result</string>
-    <string name="cancer_detection">Cancer Detection</string>
+    <!-- Grid Items -->
+    <string name="grid_patients">Patients</string>
+    <string name="grid_history_analysis">History Analysis</string>
+
+    <string name="image_result">Hasil Gambar</string>
+    <string name="analysis_result_default">Keterangan: Hasil analisis akan ditampilkan di sini.</string>
+    <string name="result_title">Hasil Analisis</string>
+    <string name="detect_cells_button">Deteksi Sel</string>
+
+    <string name="loading_message">Loading...</string>
 </resources>

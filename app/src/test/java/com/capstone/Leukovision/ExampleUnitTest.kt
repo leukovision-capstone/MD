@@ -1,4 +1,4 @@
-package com.capstone.Leukovision
+package com.capstone.leukovision
 
 import org.junit.Test
 
