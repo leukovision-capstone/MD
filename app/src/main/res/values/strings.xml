@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Leukovision</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Scan</string>
+    <string name="title_patients">Patients</string>
+    <string name="title_scan">Scan</string>
 
     <!-- Fragment Scan -->
     <string name="validasi_gambar">Validasi Gambar</string>
@@ -28,4 +28,18 @@
     <string name="detect_cells_button">Deteksi Sel</string>
 
     <string name="loading_message">Loading...</string>
+    <string name="unselect_image">Pilih Gambar Cancer</string>
+    <string name="image_classifier_failed">Masukan Gambar Dahulu. Lihat log untuk informasi detail</string>
+
+    //terbaru
+        <string name="image_preview">Preview Gambar</string>
+        <string name="select_image_title">Pilih Gambar untuk Analisis</string>
+        <string name="open_gallery">Buka Galeri</string>
+        <string name="analyze_image">Analisis Gambar</string>
+
+        <string name="result_image_preview">Gambar Hasil Analisis</string>
+        <string name="result_placeholder">Hasil analisis akan ditampilkan di sini.</string>
+        <string name="btn_analyze_again">Analisis Lagi</string>
+        <string name="btn_back_to_home">Kembali ke Beranda</string>
+    </resources>
 </resources>

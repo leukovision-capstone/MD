@@ -1,9 +1,7 @@
-import org.apache.tools.ant.util.JavaEnvUtils.VERSION_1_8
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp") version "2.0.21-1.0.27"
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -71,4 +69,6 @@ dependencies {
     implementation(libs.tensorflow.lite.task.vision)
     implementation(libs.tensorflow.lite.gpu)
     implementation(libs.tensorflow.lite) // Versi terbaru
+
+    implementation(libs.ucrop)
 }

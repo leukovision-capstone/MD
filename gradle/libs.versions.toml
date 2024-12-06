@@ -20,6 +20,7 @@ gridlayout = "1.0.0"
 retrofit = "2.11.0"
 kotlinReflect = "2.1.0"
 roomRuntime = "2.6.1"
+ucrop = "2.2.8"
 workRuntime = "2.10.0"
 
 [libraries]
@@ -34,8 +35,8 @@ androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecy
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
-tensorflow-lite = { module = "org.tensorflow:tensorflow-lite", version.ref = "tensorflowLiteGpu" }
-tensorflow-lite-gpu = { module = "org.tensorflow:tensorflow-lite-gpu", version.ref = "tensorflowLiteGpu" }
+tensorflow-lite = { module = "org.tensorflow:tensorflow-lite", version = "2.16.1" }
+tensorflow-lite-gpu = { module = "org.tensorflow:tensorflow-lite-gpu", version = "2.16.1" }
 tensorflow-lite-support = { group = "org.tensorflow", name = "tensorflow-lite-support", version.ref = "tensorflowLiteSupport" }
 tensorflow-lite-metadata = { group = "org.tensorflow", name = "tensorflow-lite-metadata", version.ref = "tensorflowLiteMetadata" }
 tensorflow-lite-task-vision = { module = "org.tensorflow:tensorflow-lite-task-vision", version.ref = "tensorflowLiteTaskVision" }
@@ -46,6 +47,7 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "workRuntime" }
+ucrop = { module = "com.github.yalantis:ucrop", version.ref = "ucrop" }
 
 
 [plugins]

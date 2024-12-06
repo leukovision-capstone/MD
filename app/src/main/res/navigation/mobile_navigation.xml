@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.capstone.leukovision.ui.patients.PatientsFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_patients"
         tools:layout="@layout/fragment_patients" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.capstone.leukovision.ui.scan.ScanFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_scan"
         tools:layout="@layout/fragment_scan" />
 </navigation>

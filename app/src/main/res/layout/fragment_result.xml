@@ -6,46 +6,48 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/resultTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textColor="@android:color/black" />
-
-    <!-- Judul Hasil Analisis -->
-    <TextView
-        android:id="@+id/title_text_view"
+        android:id="@+id/resultTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hasil Analisis"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
-
-    <!-- Gambar Hasil Analisis -->
-    <ImageView
-        android:id="@+id/result_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/image_result" />
-
-    <!-- Keterangan Hasil -->
-    <TextView
-        android:id="@+id/analysis_result_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Keterangan: Hasil analisis akan ditampilkan di sini."
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
-
-    <!-- Tombol Deteksi Sel -->
-    <Button
-        android:id="@+id/btn_detect_cells"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Deteksi Sel"
         android:layout_gravity="center"
+        android:paddingBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"  <!-- Mengambil setengah dari ruang yang tersedia -->
+    android:text="Hasil analisis akan ditampilkan di sini."
+    android:textSize="18sp"
+    android:layout_marginBottom="16dp"
+    android:gravity="center"  <!-- Mengatur teks agar berada di tengah -->
+    android:padding="16dp"  <!-- Menambahkan padding untuk estetika -->
+    android:background="@color/gray" />  <!-- Menambahkan latar belakang abu-abu untuk kontras -->
+
+    <ImageView
+        android:id="@+id/resultImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/result_image_preview"
+        android:visibility="gone"/>  <!-- Gambar hasil analisis, disembunyikan secara default -->
+
+    <Button
+        android:id="@+id/btnAnalyzeAgain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Analisis Lagi"
         android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnBackToHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kembali ke Beranda"
+        android:layout_marginTop="8dp"/>
+
 </LinearLayout>

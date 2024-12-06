@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.capstone.leukovision.databinding.FragmentDashboardBinding
+import com.capstone.leukovision.databinding.FragmentPatientsBinding
 
 class PatientsFragment : Fragment() {
 
@@ -28,7 +28,7 @@ class PatientsFragment : Fragment() {
         _binding = FragmentPatientsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
+        val textView: TextView = binding.textPatients
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
