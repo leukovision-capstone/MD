@@ -12,7 +12,7 @@
         android:id="@+id/textHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hallo Dokter 👋"
+        android:text="@string/hallo_dokter"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/darkerBlue"
@@ -26,7 +26,7 @@
         android:id="@+id/subtitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mari atasi leukemia bersama Leukovision"
+        android:text="@string/mari_atasi_leukemia_bersama_leukovision"
         android:textSize="16sp"
         android:textColor="@color/black"
         android:layout_marginTop="8dp"
@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Patients"
+                android:text="@string/patients"
                 android:textSize="18sp"
                 android:textColor="@color/white"
                 android:layout_gravity="center" />
@@ -82,7 +82,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="History Analysis"
+                android:text="@string/history_analysis"
                 android:textSize="18sp"
                 android:textColor="@color/white"
                 android:layout_gravity="center" />

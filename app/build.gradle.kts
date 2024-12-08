@@ -16,6 +16,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Menambahkan API URL dari properti proyek
+        val apiUrl: String? = project.findProperty("LeukoVision_API") as String?
+        buildConfigField("String", "LEUKOVISION_API", "\"${apiUrl ?: "https://default-api-url.com"}\"")
     }
 
     buildTypes {
@@ -25,6 +29,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Menambahkan API URL untuk build release
+            buildConfigField("String", "LEUKOVISION_API", "\"https://release-api-url.com\"")
+        }
+        getByName("debug") {
+            // Menambahkan API URL untuk build debug
+            buildConfigField("String", "LEUKOVISION_API", "\"https://debug-api-url.com\"")
         }
     }
 
@@ -40,6 +50,7 @@ android {
     buildFeatures {
         viewBinding = true
         mlModelBinding = true
+        buildConfig = true
     }
 }
 
@@ -54,6 +65,10 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.gridlayout)
     implementation(libs.kotlin.reflect)
+    implementation(libs.androidx.datastore.core.android)
+    implementation(libs.androidx.preference.ktx)
+    implementation(libs.mediation.test.suite)
+    implementation(libs.androidx.datastore.preferences.core.jvm)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

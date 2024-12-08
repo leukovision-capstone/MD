@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -9,24 +11,23 @@
         android:id="@+id/resultTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hasil Analisis"
+        android:text="@string/hasil_analisis"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:paddingBottom="16dp"/>
 
-    <TextView
-        android:id="@+id/resultTextView"
+    <!-- ImageView untuk preview gambar -->
+    <ImageView
+        android:id="@+id/result_image"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"  <!-- Mengambil setengah dari ruang yang tersedia -->
-    android:text="Hasil analisis akan ditampilkan di sini."
-    android:textSize="18sp"
-    android:layout_marginBottom="16dp"
-    android:gravity="center"  <!-- Mengatur teks agar berada di tengah -->
-    android:padding="16dp"  <!-- Menambahkan padding untuk estetika -->
-    android:background="@color/gray" />  <!-- Menambahkan latar belakang abu-abu untuk kontras -->
+        android:layout_height="400dp"
+        android:contentDescription="@string/result_image_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_place_holder"
+        tools:ignore="ImageContrastCheck" />
 
+    <!-- ImageView untuk hasil analisis -->
     <ImageView
         android:id="@+id/resultImageView"
         android:layout_width="match_parent"
@@ -36,18 +37,28 @@
         android:contentDescription="@string/result_image_preview"
         android:visibility="gone"/>  <!-- Gambar hasil analisis, disembunyikan secara default -->
 
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasil Analisis Akan Ditampilkan di Sini"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:padding="16dp"/>
+
     <Button
         android:id="@+id/btnAnalyzeAgain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Analisis Lagi"
+        android:text="@string/analisis_lagi"
         android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/btnBackToHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kembali ke Beranda"
+        android:text="@string/kembali_ke_beranda"
         android:layout_marginTop="8dp"/>
 
 </LinearLayout>

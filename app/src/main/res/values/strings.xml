@@ -3,10 +3,11 @@
     <string name="title_home">Home</string>
     <string name="title_patients">Patients</string>
     <string name="title_scan">Scan</string>
+    <string name="title_history">History</string>
+    <string name="title_settings">Settings</string>
 
     <!-- Fragment Scan -->
     <string name="validasi_gambar">Validasi Gambar</string>
-    <string name="buka_galeri">Buka Galeri</string>
     <string name="analyze">Analisis</string>
     <string name="select_image_first">Please select an image first</string>
     <string name="image_ready_analysis">Image is ready for analysis!</string>
@@ -32,14 +33,30 @@
     <string name="image_classifier_failed">Masukan Gambar Dahulu. Lihat log untuk informasi detail</string>
 
     //terbaru
-        <string name="image_preview">Preview Gambar</string>
-        <string name="select_image_title">Pilih Gambar untuk Analisis</string>
-        <string name="open_gallery">Buka Galeri</string>
-        <string name="analyze_image">Analisis Gambar</string>
+    <string name="image_preview">Preview Gambar</string>
+    <string name="select_image_title">Pilih Gambar untuk Analisis</string>
+    <string name="analyze_image">Analisis Gambar</string>
 
-        <string name="result_image_preview">Gambar Hasil Analisis</string>
-        <string name="result_placeholder">Hasil analisis akan ditampilkan di sini.</string>
-        <string name="btn_analyze_again">Analisis Lagi</string>
-        <string name="btn_back_to_home">Kembali ke Beranda</string>
-    </resources>
+    <string name="result_image_preview">Gambar Hasil Analisis</string>
+    <string name="result_placeholder">Hasil analisis akan ditampilkan di sini.</string>
+    <string name="btn_analyze_again">Analisis Lagi</string>
+    <string name="btn_back_to_home">Kembali ke Beranda</string>
+    <string name="hasil_analisis">Hasil Analisis</string>
+    <string name="kembali_ke_beranda">Kembali ke Beranda</string>
+    <string name="analisis_lagi">Analisis Lagi</string>
+    <string name="hasil_analisis_akan_ditampilkan_di_sini">Hasil analisis akan ditampilkan di sini.</string>
+    <string name="patients">Patients</string>
+    <string name="mari_atasi_leukemia_bersama_leukovision">Mari atasi leukemia bersama Leukovision</string>
+    <string name="hallo_dokter">Hallo Dokter 👋</string>
+    <string name="history_analysis">History Analysis</string>
+    <string name="pilih_gambar_untuk_analisis">Pilih Gambar untuk Analisis</string>
+    <string name="analisis_gambar">Analisis Gambar</string>
+    <string name="buka_galeri">Buka Galeri</string>
+    <string name="result_image_description">Hasil Image</string>
+
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
+    <string name="settings_app">Settings</string>
+    <string name="settings">Settings</string>
+
+
 </resources>

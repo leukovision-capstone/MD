@@ -37,15 +37,15 @@ class ScanFragment : Fragment() {
 
         // Observasi perubahan pada imageUri dari ViewModel
         viewModel.imageUri.observe(viewLifecycleOwner) { uri ->
-            uri?.let {
-                binding.previewImageView.setImageURI(it)
+            uri?.let { uri: Uri ->  // Menyebutkan tipe data eksplisit
+                binding.previewImageView.setImageURI(uri)
             }
         }
 
         binding.btnOpenGallery.setOnClickListener { startGallery() }
         binding.analyzeButton.setOnClickListener {
-            viewModel.imageUri.value?.let {
-                analyzeImage()
+            viewModel.imageUri.value?.let { uri: Uri ->  // Tentukan tipe eksplisit untuk 'uri'
+                analyzeImage(uri)
             } ?: run {
                 showToast(getString(R.string.image_classifier_failed))
             }
@@ -81,9 +81,9 @@ class ScanFragment : Fragment() {
         startCropActivity(uri)
     }
 
-    private fun analyzeImage() {
+    private fun analyzeImage(uri: Uri) {
         val intent = Intent(requireContext(), ResultFragment::class.java)
-        intent.putExtra(ResultFragment.EXTRA_IMAGE_URI, viewModel.imageUri.value.toString())
+        intent.putExtra(ResultFragment.EXTRA_IMAGE_URI, uri.toString())  // Convert to String explicitly
         startActivity(intent)
     }
 

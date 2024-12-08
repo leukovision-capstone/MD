@@ -22,4 +22,6 @@
         android:name="com.capstone.leukovision.ui.scan.ScanFragment"
         android:label="@string/title_scan"
         tools:layout="@layout/fragment_scan" />
+
+
 </navigation>
