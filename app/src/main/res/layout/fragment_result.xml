@@ -1,63 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/resultTitleTextView"
+        android:id="@+id/tvResultTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hasil_analisis"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:paddingBottom="16dp"/>
+        android:text="@string/hasil_validasi_gambar"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-    <!-- ImageView for preview image -->
     <ImageView
-        android:id="@+id/result_image"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:contentDescription="@string/result_image_description"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_place_holder"
-        tools:ignore="ImageContrastCheck" />
-
-    <!-- ImageView for analysis result -->
-    <ImageView
-        android:id="@+id/resultImageView"
+        android:id="@+id/imageResultPreview"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/result_image_preview"
-        android:visibility="gone"/>  <!-- Analysis result image, hidden by default -->
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop" />
 
     <TextView
-        android:id="@+id/resultTextView"
+        android:id="@+id/tvResultDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hasil Analisis Akan Ditampilkan di Sini"
-        android:textSize="18sp"
         android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:padding="16dp"/>
+        android:layout_marginBottom="50dp" />
 
     <Button
-        android:id="@+id/btnAnalyzeAgain"
+        android:id="@+id/btnAnalyzeLeukemia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/analisis_lagi"
-        android:layout_marginTop="16dp"/>
+        android:text="@string/analisis_sel_leukimia"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/blue_500"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btnBackToHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/kembali_ke_beranda"
-        android:layout_marginTop="8dp"/>
-
+        android:background="@color/blue_500"
+        android:textColor="@android:color/white" />
 </LinearLayout>

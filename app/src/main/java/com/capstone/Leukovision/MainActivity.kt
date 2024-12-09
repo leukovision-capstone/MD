@@ -1,5 +1,6 @@
 package com.capstone.leukovision
 
+import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
@@ -13,27 +14,34 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.capstone.leukovision.databinding.ActivityMainBinding
-import com.capstone.leukovision.ui.settings.SettingPreferences
-import com.capstone.leukovision.ui.settings.dataStore
+import com.capstone.leukovision.ui.scan.ScanFragment
+import com.capstone.leukovision.ui.settings.ThemePreferences
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var themePreferences: ThemePreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        // Mengambil preferensi tema langsung dari SettingPreferences
-        val preferences = SettingPreferences.getInstance(applicationContext.dataStore)
-
-        // Mengamati pengaturan tema
-        lifecycleScope.launch {
-            preferences.getThemeSetting().collect { isDarkMode ->
-                updateTheme(isDarkMode)
-            }
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ScanFragment())
+                .commit()
         }
+
+        // Inisialisasi SharedPreferences
+        sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
+        themePreferences = ThemePreferences(this)
+
+        // Mengambil preferensi tema dari SharedPreferences
+        val isDarkMode = sharedPreferences.getBoolean("isDarkMode", false)
+        updateTheme(isDarkMode)
 
         // Inflate layout dan set content view
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -41,6 +49,12 @@ class MainActivity : AppCompatActivity() {
 
         // Setup navigasi
         setupNavigation()
+    }
+
+    // Call this method when the user toggles the theme
+    fun toggleTheme() {
+        val isDarkMode = !themePreferences.isDarkModeEnabled()
+        themePreferences.onThemeToggle(isDarkMode)
     }
 
     private fun setupNavigation() {
@@ -87,6 +101,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    // Fungsi untuk menyimpan preferensi tema
+    fun saveThemeSetting(isDarkMode: Boolean) {
+        sharedPreferences.edit().putBoolean("isDarkMode", isDarkMode).apply()
     }
 
     companion object {

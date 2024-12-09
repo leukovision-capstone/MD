@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.targets.js.KotlinJsCompilerAttribute
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -63,6 +65,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.play.services.basement)
     implementation(libs.androidx.gridlayout)
     implementation(libs.kotlin.reflect)
     implementation(libs.androidx.datastore.core.android)
@@ -74,11 +77,19 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.retrofit)
-    ksp(libs.androidx.room.compiler)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+    implementation(libs.glide)
     implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.work.runtime)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.legacy.support.v13)
 
+    // Dependensi terbaru ditambahkan di bawah ini
     implementation(libs.tensorflow.lite.support)
     implementation(libs.tensorflow.lite.metadata)
     implementation(libs.tensorflow.lite.task.vision)
@@ -86,5 +97,10 @@ dependencies {
     implementation(libs.tensorflow.lite) // Versi terbaru
 
     implementation(libs.ucrop)
-    implementation ("com.google.android.material:material:1.12.0")
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.squareup.picasso)
+
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }

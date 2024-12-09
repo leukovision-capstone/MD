@@ -1,98 +1,112 @@
 package com.capstone.leukovision.ui.scan
 
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.capstone.leukovision.R
-import com.capstone.leukovision.databinding.FragmentScanBinding // Pastikan ini sesuai dengan nama file XML Anda
+import com.capstone.leukovision.ml.ValidationModelWithMetadata
 import com.capstone.leukovision.ui.result.ResultFragment
-import com.yalantis.ucrop.UCrop
-import java.io.File
+import org.tensorflow.lite.support.image.TensorImage
 
 class ScanFragment : Fragment() {
-    private var _binding: FragmentScanBinding? = null
-    private val binding get() = _binding!!
-    private val viewModel: ScanViewModel by viewModels()
+
+    private lateinit var imagePreview: ImageView
+    private lateinit var btnOpenGallery: Button
+    private lateinit var btnValidateImage: Button
+    private var selectedImageUri: Uri? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        // Inisialisasi binding
-        _binding = FragmentScanBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_scan, container, false)
+        imagePreview = view.findViewById(R.id.imagePreview)
+        btnOpenGallery = view.findViewById(R.id.btnOpenGallery)
+        btnValidateImage = view.findViewById(R.id.btnValidateImage)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // Observasi perubahan pada imageUri dari ViewModel
-        viewModel.imageUri.observe(viewLifecycleOwner) { uri ->
-            uri?.let { uri: Uri ->  // Menyebutkan tipe data eksplisit
-                binding.previewImageView.setImageURI(uri)
-            }
+        btnOpenGallery.setOnClickListener {
+            openGallery()
         }
 
-        binding.btnOpenGallery.setOnClickListener { startGallery() }
-        binding.analyzeButton.setOnClickListener {
-            viewModel.imageUri.value?.let { uri: Uri ->  // Tentukan tipe eksplisit untuk 'uri'
-                analyzeImage(uri)
+        btnValidateImage.setOnClickListener {
+            selectedImageUri?.let { uri ->
+                val bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, uri)
+                imagePreview.setImageBitmap(bitmap)
+                validateImage(bitmap)
             } ?: run {
-                showToast(getString(R.string.image_classifier_failed))
+                Toast.makeText(requireContext(), "Silakan pilih gambar terlebih dahulu", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        return view
+    }
+
+    private fun openGallery() {
+        if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.READ_MEDIA_IMAGES), GALLERY_PERMISSION_CODE)
+        } else {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, GALLERY_REQUEST_CODE)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == GALLERY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            selectedImageUri = data?.data
+            selectedImageUri?.let { uri ->
+                val bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, uri)
+                imagePreview.setImageBitmap(bitmap)
             }
         }
     }
 
-    private fun startGallery() {
-        launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+    private fun validateImage(bitmap: Bitmap) {
+        val model = ValidationModelWithMetadata.newInstance(requireContext())
+        val image = TensorImage.fromBitmap(bitmap)
+        val outputs = model.process(image)
+        val probability = outputs.probabilityAsCategoryList
+
+        val resultFragment = ResultFragment()
+        val resultBundle = Bundle()
+        resultBundle.putParcelable("image", bitmap)
+        resultBundle.putFloat("probability", probability[1].score) // Kelas 1: Mikroskopis
+        resultFragment.arguments = resultBundle
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, resultFragment)
+            .addToBackStack(null)
+            .commit()
+
+        model.close()
     }
 
-    private val launcherGallery = registerForActivityResult(
-        ActivityResultContracts.PickVisualMedia()
-    ) { uri: Uri? ->
-        if (uri != null) {
-            viewModel.setImageUri(uri)
-            showImage(uri)
-        } else {
-            Log.d("photoPicker", "No media selected")
-            showToast(getString(R.string.unselect_image))
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == GALLERY_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openGallery()
+            } else {
+                Toast.makeText(requireContext(), "Izin diperlukan untuk mengakses galeri", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    private fun startCropActivity(sourceUri: Uri) {
-        val destinationUri = Uri.fromFile(File(requireContext().cacheDir, "cropped_image.jpg"))
-        UCrop.of(sourceUri, destinationUri)
-            .withAspectRatio(1f, 1f)
-            .withMaxResultSize(224, 224)
-            .start(requireContext(), this)
-    }
-
-    private fun showImage(uri: Uri) {
-        Log.d("photoPicker", "showImage: $uri")
-        startCropActivity(uri)
-    }
-
-    private fun analyzeImage(uri: Uri) {
-        val intent = Intent(requireContext(), ResultFragment::class.java)
-        intent.putExtra(ResultFragment.EXTRA_IMAGE_URI, uri.toString())  // Convert to String explicitly
-        startActivity(intent)
-    }
-
-    private fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null // Menghindari kebocoran memori
+    companion object {
+        private const val GALLERY_REQUEST_CODE = 1001
+        private const val GALLERY_PERMISSION_CODE = 1002
     }
 }

@@ -35,26 +35,38 @@
 
     <!-- Button texts -->
     <string name="analisis_lagi">Analisis Lagi</string>
-    <string name="kembali_ke_beranda">Kembali ke Beranda</string>
 
     <!-- Placeholder for analysis result text -->
     <string name="hasil_analisis_placeholder">Hasil Analisis Akan Ditampilkan di Sini</string>
 
     <!-- Title for image validation -->
-    <string name="pilih_gambar_untuk_validasi">Pilih Gambar untuk Validasi</string>
 
     <!-- Content description for image preview -->
     <string name="image_preview">Prabaca gambar untuk validasi</string>
 
-    <!-- Button texts -->
-    <string name="buka_galeri">Buka Galeri</string>
     <string name="analisis_gambar">Analisis Gambar</string>
-
-    <string name="pilih_tema">Pilih Tema</string>
 
     <!-- Title for analysis history list -->
     <string name="daftar_history_analisis">Daftar History Analisis</string>
     <!-- Title for daftar patients list -->
     <string name="daftar_patients">Daftar Pasien</string>
+
+
+    <!--  strings terbaru dari blackbox ai -->
+    <string name="select_image_text">Pilih gambar untuk validasi</string>
+    <string name="validate_image_button">Validasi Gambar</string>
+    <!-- Teks untuk tampilan hasil validasi gambar -->
+    <string name="result_title">Hasil Validasi Gambar</string>
+    <string name="analyze_leukemia_button">Analisis Sel Leukimia</string>
+
+    <string name="image_classifier_failed">Image classifier initialization failed.</string>
+    <string name="failed_to_load_image">Failed to load image from URI.</string>
+    <string name="analisis_sel_leukimia">Analisis Sel Leukimia</string>
+    <string name="hasil_validasi_gambar">Hasil Validasi Gambar</string>
+    <string name="kembali_ke_beranda">Kembali ke Beranda</string>
+    <string name="pilih_gambar_untuk_validasi">Pilih gambar untuk validasi</string>
+    <string name="buka_galeri">Buka Galeri</string>
+    <string name="validasi_gambar">Validasi Gambar</string>
+    <string name="pilih_tema">Pilih Tema</string>
 
 </resources>
