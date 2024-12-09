@@ -6,57 +6,55 @@
     <string name="title_history">History</string>
     <string name="title_settings">Settings</string>
 
-    <!-- Fragment Scan -->
-    <string name="validasi_gambar">Validasi Gambar</string>
-    <string name="analyze">Analisis</string>
-    <string name="select_image_first">Please select an image first</string>
-    <string name="image_ready_analysis">Image is ready for analysis!</string>
-    <string name="failed_analysis">Failed to analyze image</string>
+    <!-- Bottom Navigation Menu Items -->
+    <string name="navigation_home">Beranda</string>
+    <string name="navigation_patients">Pasien</string>
+    <string name="navigation_history">Riwayat</string>
+    <string name="navigation_settings">Pengaturan</string>
+
+    <!-- Other Strings -->
+    <string name="welcome_message">Selamat datang di aplikasi kami!</string>
+    <string name="error_message">Terjadi kesalahan, silakan coba lagi.</string>
 
     <!-- Greeting Text -->
-    <string name="greeting_doctor">Hallo Dokter 👋</string>
+    <string name="hallo_dokter">Halo Dokter</string>
 
     <!-- Subtitle Text -->
-    <string name="subtitle_leukemia">Mari atasi leukemia bersama Leukovision</string>
-
-    <!-- Grid Items -->
-    <string name="grid_patients">Patients</string>
-    <string name="grid_history_analysis">History Analysis</string>
-
-    <string name="image_result">Hasil Gambar</string>
-    <string name="analysis_result_default">Keterangan: Hasil analisis akan ditampilkan di sini.</string>
-    <string name="result_title">Hasil Analisis</string>
-    <string name="detect_cells_button">Deteksi Sel</string>
-
-    <string name="loading_message">Loading...</string>
-    <string name="unselect_image">Pilih Gambar Cancer</string>
-    <string name="image_classifier_failed">Masukan Gambar Dahulu. Lihat log untuk informasi detail</string>
-
-    //terbaru
-    <string name="image_preview">Preview Gambar</string>
-    <string name="select_image_title">Pilih Gambar untuk Analisis</string>
-    <string name="analyze_image">Analisis Gambar</string>
-
-    <string name="result_image_preview">Gambar Hasil Analisis</string>
-    <string name="result_placeholder">Hasil analisis akan ditampilkan di sini.</string>
-    <string name="btn_analyze_again">Analisis Lagi</string>
-    <string name="btn_back_to_home">Kembali ke Beranda</string>
-    <string name="hasil_analisis">Hasil Analisis</string>
-    <string name="kembali_ke_beranda">Kembali ke Beranda</string>
-    <string name="analisis_lagi">Analisis Lagi</string>
-    <string name="hasil_analisis_akan_ditampilkan_di_sini">Hasil analisis akan ditampilkan di sini.</string>
-    <string name="patients">Patients</string>
     <string name="mari_atasi_leukemia_bersama_leukovision">Mari atasi leukemia bersama Leukovision</string>
-    <string name="hallo_dokter">Hallo Dokter 👋</string>
-    <string name="history_analysis">History Analysis</string>
-    <string name="pilih_gambar_untuk_analisis">Pilih Gambar untuk Analisis</string>
-    <string name="analisis_gambar">Analisis Gambar</string>
+
+    <!-- Card Titles -->
+    <string name="patients">Pasien</string>
+    <string name="history_analysis">Analisis Riwayat</string>
+
+    <!-- Title for the analysis result -->
+    <string name="hasil_analisis">Hasil Analisis</string>
+
+    <!-- Content descriptions for images -->
+    <string name="result_image_description">Gambar hasil analisis</string>
+    <string name="result_image_preview">Prabaca gambar hasil analisis</string>
+
+    <!-- Button texts -->
+    <string name="analisis_lagi">Analisis Lagi</string>
+    <string name="kembali_ke_beranda">Kembali ke Beranda</string>
+
+    <!-- Placeholder for analysis result text -->
+    <string name="hasil_analisis_placeholder">Hasil Analisis Akan Ditampilkan di Sini</string>
+
+    <!-- Title for image validation -->
+    <string name="pilih_gambar_untuk_validasi">Pilih Gambar untuk Validasi</string>
+
+    <!-- Content description for image preview -->
+    <string name="image_preview">Prabaca gambar untuk validasi</string>
+
+    <!-- Button texts -->
     <string name="buka_galeri">Buka Galeri</string>
-    <string name="result_image_description">Hasil Image</string>
+    <string name="analisis_gambar">Analisis Gambar</string>
 
-    <string name="hello_blank_fragment">Hello Blank Fragment</string>
-    <string name="settings_app">Settings</string>
-    <string name="settings">Settings</string>
+    <string name="pilih_tema">Pilih Tema</string>
 
+    <!-- Title for analysis history list -->
+    <string name="daftar_history_analisis">Daftar History Analisis</string>
+    <!-- Title for daftar patients list -->
+    <string name="daftar_patients">Daftar Pasien</string>
 
 </resources>

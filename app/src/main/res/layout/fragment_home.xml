@@ -15,7 +15,7 @@
         android:text="@string/hallo_dokter"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/darkerBlue"
+        android:textColor="@color/blue_700"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,14 +50,14 @@
 
         <!-- Card for Patients -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewPatients"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:cardBackgroundColor="@color/primaryColor"
+            app:cardBackgroundColor="@color/blue_500"
             app:cardCornerRadius="8dp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            android:onClick="navigateToPatients">
+            android:layout_margin="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,14 +70,14 @@
 
         <!-- Card for History Analysis -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewHistory"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:cardBackgroundColor="@color/primaryColor"
+            app:cardBackgroundColor="@color/blue_500"
             app:cardCornerRadius="8dp"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
-            android:layout_margin="8dp"
-            android:onClick="navigateToHistory">
+            android:layout_margin="8dp">
 
             <TextView
                 android:layout_width="wrap_content"

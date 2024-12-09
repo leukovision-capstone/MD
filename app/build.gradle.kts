@@ -86,4 +86,5 @@ dependencies {
     implementation(libs.tensorflow.lite) // Versi terbaru
 
     implementation(libs.ucrop)
+    implementation ("com.google.android.material:material:1.12.0")
 }

@@ -3,25 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.capstone.leukovision.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+
+        <!-- Aksi navigasi dari HomeFragment ke PatientsFragment -->
+        <action
+            android:id="@+id/action_homeFragment_to_patientsFragment"
+            app:destination="@id/navigation_patients" />
+
+        <!-- Aksi navigasi dari HomeFragment ke HistoryFragment -->
+        <action
+            android:id="@+id/action_homeFragment_to_historyFragment"
+            app:destination="@id/navigation_history" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_patients"
         android:name="com.capstone.leukovision.ui.patients.PatientsFragment"
         android:label="@string/title_patients"
         tools:layout="@layout/fragment_patients" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_scan"
         android:name="com.capstone.leukovision.ui.scan.ScanFragment"
         android:label="@string/title_scan"
         tools:layout="@layout/fragment_scan" />
 
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.capstone.leukovision.ui.history.HistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.capstone.leukovision.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>

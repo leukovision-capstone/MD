@@ -1,54 +1,51 @@
 package com.capstone.leukovision.ui.settings
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.fragment.app.viewModels
-import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.SwitchPreference
+import android.view.ViewGroup
+import android.widget.Switch
+import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.capstone.leukovision.R
-import com.capstone.leukovision.util.SettingsViewModelFactory
 
-class SettingsFragment : PreferenceFragmentCompat() {
-    private val viewModel by viewModels<SettingsViewModel> {
-        SettingsViewModelFactory.getInstance(requireContext())
-    }
+class SettingsFragment : Fragment() {
 
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        addPreferencesFromResource(R.xml.preference)
-    }
+    private lateinit var switchTheme: Switch
+    private lateinit var sharedPreferences: SharedPreferences
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_settings, container, false)
 
-        setupThemePreference()
-    }
+        switchTheme = view.findViewById(R.id.switch_theme)
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
 
-    private fun setupThemePreference() {
-        val themeSwitch = findPreference<SwitchPreference>("themeKey")
+        // Set the switch state based on saved preference
+        val isDarkTheme = sharedPreferences.getBoolean("isDarkTheme", false)
+        switchTheme.isChecked = isDarkTheme
 
-        // Mengamati perubahan tema dari ViewModel
-        viewModel.theme.observe(viewLifecycleOwner) { isDark ->
-            themeSwitch?.isChecked = isDark
-            // Mengatur mode malam sesuai dengan preferensi
-            AppCompatDelegate.setDefaultNightMode(
-                if (isDark) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
-            )
+        // Set listener for switch
+        switchTheme.setOnCheckedChangeListener { _, isChecked ->
+            // Save the theme preference
+            sharedPreferences.edit().putBoolean("isDarkTheme", isChecked).apply()
+            // Apply the theme
+            applyTheme(isChecked)
         }
 
-        // Menangani perubahan preferensi
-        themeSwitch?.setOnPreferenceChangeListener { _, newValue ->
-            val isDarkMode = newValue as Boolean
-            viewModel.saveThemeSetting(isDarkMode)
-            // Mengatur mode malam sesuai dengan preferensi yang baru
-            AppCompatDelegate.setDefaultNightMode(
-                if (isDarkMode) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
-            )
-            true
-        }
+        return view
     }
 
-    companion object {
-        private const val TAG = "SettingsFragment"
+    private fun applyTheme(isDark: Boolean) {
+        if (isDark) {
+            requireActivity().setTheme(R.style.Theme_App_Dark) // Tema gelap
+        } else {
+            requireActivity().setTheme(R.style.Theme_App_Light) // Tema terang
+        }
+        requireActivity().recreate() // Recreate activity untuk menerapkan tema
     }
 }
