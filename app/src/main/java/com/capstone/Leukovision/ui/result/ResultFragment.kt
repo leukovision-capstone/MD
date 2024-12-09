@@ -1,91 +1,86 @@
 package com.capstone.leukovision.ui.result
 
-import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import com.capstone.leukovision.databinding.FragmentResultBinding
+import com.capstone.leukovision.R
 import com.capstone.leukovision.utils.ImageClassifierHelper
 import org.tensorflow.lite.task.vision.classifier.Classifications
-import java.util.Locale
 
-class ResultFragment : Fragment() {
-    private var _binding: FragmentResultBinding? = null
-    private val binding get() = _binding!!  // Binding untuk mengakses elemen UI
-    private val resultViewModel: ResultViewModel by viewModels()
+class ResultFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
+
+    private lateinit var imageResultPreview: ImageView
+    private lateinit var tvResultDescription: TextView
+    private lateinit var btnAnalyzeLeukemia: Button
+    private lateinit var btnBackToHome: Button
+    private lateinit var imageClassifierHelper: ImageClassifierHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        // Inisialisasi binding
-        _binding = FragmentResultBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_result, container, false)
+        imageResultPreview = view.findViewById(R.id.imageResultPreview)
+        tvResultDescription = view.findViewById(R.id.tvResultDescription)
+        btnAnalyzeLeukemia = view.findViewById(R.id.btnAnalyzeLeukemia)
+        btnBackToHome = view.findViewById(R.id.btnBackToHome)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        // Ambil bitmap dari argumen
+        val bitmap = arguments?.getParcelable<Bitmap>("image")
+        val imageUri = arguments?.getParcelable<Uri>("imageUri") // Jika Anda menggunakan URI
 
-        // Mendapatkan URI gambar dari argumen
-        val imageUri = arguments?.getString(EXTRA_IMAGE_URI)?.let { Uri.parse(it) }
+        // Tampilkan gambar di ImageView
+        imageResultPreview.setImageBitmap(bitmap)
 
-        if (imageUri == null) {
-            Toast.makeText(requireContext(), "Tidak ada gambar yang dipilih.", Toast.LENGTH_SHORT).show()
-            requireActivity().finish() // Mengakhiri activity jika tidak ada gambar
-            return
-        } else {
-            resultViewModel.setImageUri(imageUri)
-        }
-
-        resultViewModel.imageUri.observe(viewLifecycleOwner) { uri ->
-            uri?.let {
-                Log.d("photoPicker", "showImage: $it")
-                // Tampilkan gambar yang dipilih
-                binding.resultImageView.setImageURI(it)  // Sesuaikan dengan ID dari XML
-            }
-        }
-
-        val imageClassifierHelper = ImageClassifierHelper(
+        // Inisialisasi ImageClassifierHelper
+        imageClassifierHelper = ImageClassifierHelper(
             context = requireContext(),
-            classifierListener = object : ImageClassifierHelper.ClassifierListener {
-                override fun onError(error: String) {
-                    Log.d("photoPicker", "Error: $error")
-                    Toast.makeText(requireContext(), "Gagal menganalisis gambar: $error", Toast.LENGTH_SHORT).show()
-                }
-
-                @SuppressLint("SetTextI18n")
-                override fun onResults(results: List<Classifications>?, inferenceTime: Long) {
-                    results?.let {
-                        val topResult = it[0]
-                        val label = topResult.categories[0].label
-                        val score = topResult.categories[0].score
-
-                        fun Float.formatToString(): String {
-                            return String.format(Locale.US, "%.2f%%", this * 100)
-                        }
-                        binding.resultTextView.text = "$label ${score.formatToString()}"  // Sesuaikan dengan ID dari XML
-                    }
-                }
-            }
+            classifierListener = this
         )
 
-        resultViewModel.imageUri.value?.let { uri ->
-            imageClassifierHelper.classifyStaticImage(uri)
+        // Jika Anda menggunakan URI, panggil classifyImage
+        imageUri?.let {
+            imageClassifierHelper.classifyStaticImage(it)
         }
+
+        btnBackToHome.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
+//        btnAnalyzeLeukemia.setOnClickListener {
+//            // Logika untuk analisis sel leukimia
+//            // Misalnya, Anda bisa memulai Activity baru untuk analisis lebih lanjut
+//            // val intent = Intent(requireContext(), AnalysisActivity::class.java)
+//            // startActivity(intent)
+//        }
+
+        return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null // Menghindari kebocoran memori
+    override fun onError(error: String) {
+        // Tangani kesalahan, misalnya dengan menampilkan pesan kepada pengguna
+        tvResultDescription.text = error
     }
 
-    companion object {
-        const val EXTRA_IMAGE_URI = "extra_image_uri"
+    override fun onResults(results: List<Classifications>?, inferenceTime: Long) {
+        // Tangani hasil klasifikasi
+        results?.let {
+            val classification = it[0] // Ambil hasil klasifikasi pertama
+            val category = classification.categories[0] // Ambil kategori dengan probabilitas tertinggi
+
+            // Tampilkan hasil klasifikasi
+            tvResultDescription.text = if (category.score > 0.5) {
+                "Gambar sukses tervalidasi: ${category.label}"
+            } else {
+                "Gambar tidak valid: Non-mikroskopis"
+            }
+        }
     }
 }
