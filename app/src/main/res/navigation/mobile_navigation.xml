@@ -3,20 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_home">
+    app:startDestination="@+id/navigation_home">
 
+    <!-- Home Fragment -->
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.capstone.leukovision.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
 
-        <!-- Aksi navigasi dari HomeFragment ke PatientsFragment -->
+        <!-- Action to Patients Fragment -->
         <action
             android:id="@+id/action_homeFragment_to_patientsFragment"
             app:destination="@id/navigation_patients" />
 
-        <!-- Aksi navigasi dari HomeFragment ke HistoryFragment -->
+        <!-- Action to History Fragment -->
         <action
             android:id="@+id/action_homeFragment_to_historyFragment"
             app:destination="@id/navigation_history" />
@@ -30,9 +31,27 @@
 
     <fragment
         android:id="@+id/navigation_scan"
-        android:name="com.capstone.leukovision.ui.scan.ScanFragment"
+        android:name="dicoding.capstone.leukovision.ui.scan.ScanFragment"
         android:label="@string/title_scan"
-        tools:layout="@layout/fragment_scan" />
+        tools:layout="@layout/fragment_scan" >
+
+        <!-- Action to ResultFragment -->
+        <action
+            android:id="@+id/action_scanFragment_to_resultFragment"
+            app:destination="@id/navigation_result" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_result"
+        android:name="dicoding.capstone.leukovision.ui.result.ResultFragment"
+        android:label="@string/title_result"
+        tools:layout="@layout/fragment_result" >
+
+        <!-- Action to ScanFragment -->
+        <action
+            android:id="@+id/action_resultFragment_to_scanFragment"
+            app:destination="@id/navigation_scan" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_history"
@@ -45,5 +64,7 @@
         android:name="com.capstone.leukovision.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
+
+
 
 </navigation>

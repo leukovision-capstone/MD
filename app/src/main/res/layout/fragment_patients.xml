@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.patients.PatientsFragment">
+    tools:context="com.capstone.leukovision.ui.patients.PatientsFragment">
 
     <TextView
         android:id="@+id/text_patients"
@@ -19,10 +19,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/daftar_patients" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

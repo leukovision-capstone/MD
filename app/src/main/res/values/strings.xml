@@ -5,68 +5,30 @@
     <string name="title_scan">Scan</string>
     <string name="title_history">History</string>
     <string name="title_settings">Settings</string>
-
-    <!-- Bottom Navigation Menu Items -->
-    <string name="navigation_home">Beranda</string>
-    <string name="navigation_patients">Pasien</string>
-    <string name="navigation_history">Riwayat</string>
-    <string name="navigation_settings">Pengaturan</string>
-
-    <!-- Other Strings -->
-    <string name="welcome_message">Selamat datang di aplikasi kami!</string>
-    <string name="error_message">Terjadi kesalahan, silakan coba lagi.</string>
-
-    <!-- Greeting Text -->
-    <string name="hallo_dokter">Halo Dokter</string>
-
-    <!-- Subtitle Text -->
-    <string name="mari_atasi_leukemia_bersama_leukovision">Mari atasi leukemia bersama Leukovision</string>
-
-    <!-- Card Titles -->
-    <string name="patients">Pasien</string>
-    <string name="history_analysis">Analisis Riwayat</string>
-
-    <!-- Title for the analysis result -->
-    <string name="hasil_analisis">Hasil Analisis</string>
-
-    <!-- Content descriptions for images -->
-    <string name="result_image_description">Gambar hasil analisis</string>
-    <string name="result_image_preview">Prabaca gambar hasil analisis</string>
-
-    <!-- Button texts -->
-    <string name="analisis_lagi">Analisis Lagi</string>
-
-    <!-- Placeholder for analysis result text -->
-    <string name="hasil_analisis_placeholder">Hasil Analisis Akan Ditampilkan di Sini</string>
-
-    <!-- Title for image validation -->
-
-    <!-- Content description for image preview -->
-    <string name="image_preview">Prabaca gambar untuk validasi</string>
-
-    <string name="analisis_gambar">Analisis Gambar</string>
-
-    <!-- Title for analysis history list -->
-    <string name="daftar_history_analisis">Daftar History Analisis</string>
-    <!-- Title for daftar patients list -->
-    <string name="daftar_patients">Daftar Pasien</string>
-
-
-    <!--  strings terbaru dari blackbox ai -->
-    <string name="select_image_text">Pilih gambar untuk validasi</string>
-    <string name="validate_image_button">Validasi Gambar</string>
-    <!-- Teks untuk tampilan hasil validasi gambar -->
-    <string name="result_title">Hasil Validasi Gambar</string>
-    <string name="analyze_leukemia_button">Analisis Sel Leukimia</string>
-
-    <string name="image_classifier_failed">Image classifier initialization failed.</string>
-    <string name="failed_to_load_image">Failed to load image from URI.</string>
-    <string name="analisis_sel_leukimia">Analisis Sel Leukimia</string>
-    <string name="hasil_validasi_gambar">Hasil Validasi Gambar</string>
-    <string name="kembali_ke_beranda">Kembali ke Beranda</string>
-    <string name="pilih_gambar_untuk_validasi">Pilih gambar untuk validasi</string>
+    <string name="gambar_scan">Gambar Scan</string>
     <string name="buka_galeri">Buka Galeri</string>
     <string name="validasi_gambar">Validasi Gambar</string>
-    <string name="pilih_tema">Pilih Tema</string>
+    <string name="pilih_gambar_untuk_validasi">Pilih Gambar Untuk Validasi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hasil_gambar_validasi">Hasil Gambar Validasi</string>
+    <string name="analisis_sel_leukimia">Analisis Sel Leukimia</string>
+    <string name="save_hasil">Save Hasil</string>
+    <string name="hallo_dokter">Hallo Dokter</string>
+    <string name="mari_atasi_leukemia_bersama_leukovision">Mari Atasi Leukemia Bersama Leukovision</string>
+    <string name="title_result">Hasil Validasi</string>
+    <string name="image_classifier_failed">Masukan Gambar Dahulu. Lihat log untuk informasi detail</string>
+
+    <string name="toast_no_image_selected">Tidak ada gambar yang dipilih.</string>
+    <string name="toast_analysis_failed">Gagal menganalisis gambar.</string>
+    <string name="classification_invalid">Hasil klasifikasi tidak valid.</string>
+    <string name="classification_empty">Tidak ada hasil klasifikasi.</string>
+
+    <!-- Log messages -->
+    <string name="log_classification_failed">Gagal mengklasifikasi gambar: %1$s</string>
+    <string name="back">Kembali</string>
+    <string name="scan_new">Pindai Baru</string>
+
+    <!-- UI Strings -->
 
 </resources>
