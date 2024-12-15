@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.capstone.leukovision.ui.scan.ScanFragment">
+    tools:context=".ui.scan.ScanFragment">
 
     <!-- TextView -->
     <TextView
@@ -33,6 +33,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/button_buka_galeri"
         android:contentDescription="@string/gambar_scan" />
+
+    <!-- activity_main.xml -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <!-- Button Buka Galeri -->
     <Button

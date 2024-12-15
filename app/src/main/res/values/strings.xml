@@ -16,7 +16,6 @@
     <string name="save_hasil">Save Hasil</string>
     <string name="hallo_dokter">Hallo Dokter</string>
     <string name="mari_atasi_leukemia_bersama_leukovision">Mari Atasi Leukemia Bersama Leukovision</string>
-    <string name="title_result">Hasil Validasi</string>
     <string name="image_classifier_failed">Masukan Gambar Dahulu. Lihat log untuk informasi detail</string>
 
     <string name="toast_no_image_selected">Tidak ada gambar yang dipilih.</string>
@@ -26,9 +25,29 @@
 
     <!-- Log messages -->
     <string name="log_classification_failed">Gagal mengklasifikasi gambar: %1$s</string>
-    <string name="back">Kembali</string>
-    <string name="scan_new">Pindai Baru</string>
 
     <!-- UI Strings -->
+    <string name="button_back">Kembali</string>
+    <string name="button_scan_new">Pindai Baru</string>
+    <string name="hasil_deteksi_kanker_darah">Hasil Deteksi Kanker Darah</string>
+    <string name="diagnosis">Diagnosis:</string>
+    <string name="keyakinan">Keyakinan:</string>
+    <string name="hasil_deteksi_sel">Hasil Deteksi Sel</string>
+    <string name="gambar_mikroskop_dengan_deteksi">Gambar Mikroskop dengan Deteksi</string>
+    <string name="ringkasan_analisis">Ringkasan Analisis</string>
+    <string name="jumlah_sel">Jumlah Sel:</string>
+    <string name="sel_abnormal">Sel Abnormal:</string>
+    <string name="rata_rata_keyakinan">Rata-rata Keyakinan:</string>
+    <string name="rekomendasi_medis">Rekomendasi Medis</string>
+    <string name="segera_berkonsultasi_dengan_medis_sangat_dianjurkan">Segera berkonsultasi dengan medis sangat dianjurkan</string>
+    <string name="title_analisis">Analisis</string>
+    <string name="address_jl_braga">Address: Jl. Braga</string>
+    <string name="gender_female">Gender: Female</string>
+    <string name="age_25">Age: 25</string>
+    <string name="name_inem">Name: Inem</string>
+    <string name="analyze_result_will_appear_here">Analyze result will appear here</string>
+    <string name="title_result">Analisis Hasil</string>
+
+    <string name="result_format">Kelas: %1$s, Keyakinan: %2$.2f</string>
 
 </resources>
