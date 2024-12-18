@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Default state: Normal background -->
+    <item android:drawable="@drawable/card_background_normal" android:state_enabled="true"/>
+
+    <!-- Pressed state -->
+    <item android:drawable="@drawable/card_background_pressed" android:state_pressed="true"/>
+
+    <!-- Focused state -->
+    <item android:drawable="@drawable/card_background_focused" android:state_focused="true"/>
+</selector>
